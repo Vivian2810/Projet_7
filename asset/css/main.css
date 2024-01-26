@@ -1,0 +1,8 @@
+@font-face {
+  font-family: 'Anton' ;
+  src: url(../font/Anton-Regular.ttf);
+}
+
+.body {
+    font-family: 'Anton', sans-serif;
+}

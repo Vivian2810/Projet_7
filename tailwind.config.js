@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {},
     fontFamily: {
-      sans: ["Anton", "sans-serif"],
+      sans: ["Manrope", "Anton", "sans-serif"],
     }
   },
   plugins: [],

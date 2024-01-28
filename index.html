@@ -13,13 +13,63 @@
   <title>Les petits plats</title>
 </head>
 
-<body>
-  <header class="w-full h-[300px] text-white bg-cover bg-[url('/img/background.jpg')]">
+<body class="bg-gray-300">
+  <header class="w-full h-[300px] text-white bg-cover rounded-b-xl bg-[url('/img/background.jpg')]">
     <h3 class="pl-6 pt-4 pb-12">Les petits Plats</h3>
     <div class="w-full items-center justify-center flex flex-col">
-      <p class="text-2xl text-center w-1/2 text-yellow-500">Charcher parmis plus de 1500 recettes du quotidien, simples et délicieuses</p>
+      <h2 class="text-2xl text-center w-1/2 text-yellow-500">Charcher parmis plus de 1500 recettes du quotidien, simples
+        et délicieuses</h2>
+      <!-- Search bar -->
+      <div class="mt-4 w-2/3">
+        <!-- A refaire avec l'icon search -->
+        <input class="bg-white active:border-none text-black px-4 py-2 rounded-md w-full" type="text" />
+
+      </div>
     </div>
   </header>
+  <div class="mx-12">
+    <div class="flex mt-5">
+      <div class="flex space-x-3 w-1/2">
+        <div class="dropdown w-1/3 relative inline-block">
+          <button class="rounded-md w-full bg-white p-5 border-none">Dropdown</button>
+          <div class="dropdown-content rounded-md hidden absolute bg-white min-w-[150px]">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+          </div>
+        </div>
+        <div class="dropdown w-1/3 relative inline-block">
+          <button class="rounded-md w-full bg-white p-5 border-none">Dropdown</button>
+          <div class="dropdown-content rounded-md hidden absolute bg-white min-w-[150px]">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+          </div>
+        </div>
+        <div class="dropdown w-1/3 relative inline-block">
+          <button class="rounded-md w-full bg-white p-5 border-none">Dropdown</button>
+          <div class="dropdown-content rounded-md hidden absolute bg-white min-w-[150px]">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+          </div>
+        </div>
+      </div>
+      <h3 class="w-1/2 text-lg text-right mr-3 mt-2">
+        1500 recettes
+      </h3>
+    </div>
+    <div class="grid grid-cols-3 gap-8 mt-7">
+      <!-- Schema Card recette -->
+      <div class="w-full rounded-2xl overflow-hidden bg-white">
+        <img src="./img/recipes/brownies.jpeg" class="object-cover w-full h-1/3" alt="">
+        <div class="mt-5 mx-3 ">
+          <h3 class=" font-bold">Brownies</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </body>
 
 </html>

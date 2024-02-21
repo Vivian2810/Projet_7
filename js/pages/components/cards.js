@@ -1,7 +1,5 @@
 "use strict";
 
-import { RECIPES } from "/js/data/recipesData.js";
-
 function createRecipeCard(recipe) {
   const card = document.createElement("div");
   card.innerHTML = `
@@ -41,9 +39,10 @@ function createRecipeCard(recipe) {
   return card;
 }
 
-function renderRecipes() {
+function renderRecipes(listRecipes) {
   const container = document.querySelector(".recipes-container");
-  RECIPES.forEach((recipe) => {
+  container.innerHTML = "";
+  listRecipes.forEach((recipe) => {
     const card = createRecipeCard(recipe);
     container.appendChild(card);
   });

@@ -1,72 +1,52 @@
 "use strict";
 
-export class RecipeCard {
-  /**
-   * @constructs
-   * @param {Recipe} recipe
-   * @param {number} cardNumber
-   */
-  constructor(recipe, cardNumber) {
-    this._recipe = recipe;
-    this._cardNumber = cardNumber;
-  }
+import { RECIPES } from "/js/data/recipesData.js";
 
-  /**
-   * @returns {string}
-   */
-  _ingredientsHtml() {
-    let htmlContent = "";
-
-    for (let ingredient of this._recipe.ingredients) {
-      let ingredientQuantity = ingredient.quantity
-        ? ingredient.unit
-          ? `&nbsp;: ${ingredient.quantity}&nbsp;${ingredient.unit}`
-          : `&nbsp;: ${ingredient.quantity}`
-        : "";
-
-      htmlContent += `<p>
-          <strong>
-            ${ingredient.ingredient}
-          </strong> ${ingredientQuantity}
-        </p>`;
-    }
-
-    return htmlContent;
-  }
-
-  /**
-   * @returns {string}
-   */
-  get html() {
-    return `<article class="c-card lg4 md6 sm12" data-card-id="${
-      this._cardNumber
-    }">
-        <div class="c-card__img">
-          <img 
-            src="./img/recipes/${this._recipe.cover}"
-            alt="${this._recipe.altText}"
-          />
+function createRecipeCard(recipe) {
+  const card = document.createElement("div");
+  card.innerHTML = `
+    <div class="w-full h-full rounded-2xl overflow-hidden bg-white" id="${recipe.id}">
+      <img src="/img/recipes/${
+        recipe.cover
+      }" class="object-cover w-full h-1/3" alt="">
+      <div class="mt-5 mx-3 ">
+        <h3 class=" font-bold">${recipe.name}</h3>
+        <div class="mt-7 space-y-3">
+          <p class="uppercase text-xs text-gray-400">Recette</p>
+          <p class="card-text max-h-24 overflow-hidden">${recipe.description}</p>
         </div>
-
-        <div class="c-card__body">
-          <h2 class="c-card__title">
-            <span class="name">${this._recipe.name}</span>
-            <span class="duration">
-              <i class="far fa-clock"></i>
-              ${this._recipe.time} min
-            </span>
-          </h2>
-
-          <div class="c-card__recipe row-12 has-gutter-lg">
-            <div class="c-card__ingredients lg6 md6 sm6">
-              ${this._ingredientsHtml()}
-            </div>
-
-            <div class="c-card__description lg6 md6 sm6">
-              <p>${this._recipe.description}</p>
-            </div>
+        <div class="mt-5 space-y-3">
+          <p class="uppercase text-xs w-full text-gray-400 ">ingredients</p>
+          <div class="grid text-sm grid-cols-2 gap-y-4">
+          ${recipe.ingredients
+            .map((ingredient) => {
+              return ingredient.quantity
+                ? `
+              <div>
+                <p>${ingredient.ingredient}</p>
+                <p class="text-gray-400">${ingredient.quantity}</p>
+              </div>
+            `: `
+            <div>
+              <p>${ingredient.ingredient}</p>
+              </div>
+              `;
+            })
+            .join("")}
           </div>
         </div>
-      </article>`;
-  }
+      </div>
+    </div>
+  `;
+  return card;
 }
+
+function renderRecipes() {
+  const container = document.querySelector(".recipes-container");
+  RECIPES.forEach((recipe) => {
+    const card = createRecipeCard(recipe);
+    container.appendChild(card);
+  });
+}
+
+export { renderRecipes };

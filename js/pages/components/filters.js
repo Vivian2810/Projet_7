@@ -17,7 +17,6 @@ function createFilter() {
     if(equipments.indexOf(recipe.appliance) === -1) equipments.push(recipe.appliance);
   });
   filter.innerHTML += `
-    <div class="flex flex-col items-center">
       <div class="flex flex-col items-center">
         <label for="ingredients">Ingrédients</label>
         <input type="text" id="ingredients" class="w-80 border-2 border-gray-400 rounded-lg" placeholder="Rechercher un ingrédient">
@@ -30,7 +29,6 @@ function createFilter() {
         <label for="ustensiles">Ustensiles</label>
         <input type="text" id="ustensiles" class="w-80 border-2 border-gray-400 rounded-lg" placeholder="Rechercher un ustensile">
       </div>
-    </div>
   `;
 }
 
